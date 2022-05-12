@@ -1,6 +1,6 @@
 import React, { useState } from  'react';
-    
-    
+
+
 const UserForm = (props) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -8,43 +8,35 @@ const UserForm = (props) => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     
-    const createUser = (e) => {
-        e.preventDefault();
-        const newUser = { firstName, lastName };
-        console.log("Welcome", newUser);
-    };
-    
     return(
         <div className="container">
-        <form onSubmit={ createUser }>
-            <div>
-                <label>First Name: </label> 
-                <input type="text" onChange={ (e) => setFirstName(e.target.value) } />
+            <div className="mb-3">
+                <label className="form-label">First Name: </label> 
+                <input className="form-control" type="text" onChange={ (e) => setFirstName(e.target.value) } />
             </div>
-            <div>
-                <label>Last Name: </label> 
-                <input type="text" onChange={ (e) => setLastName(e.target.value) } />
+            <div className="mb-3">
+                <label className="form-label">Last Name: </label> 
+                <input className="form-control" type="text" onChange={ (e) => setLastName(e.target.value) } />
             </div>
-            <div>
-                <label>Email: </label>
-                <input type="text" onChange={ (e) => setEmail(e.target.value) } />
+            <div className="mb-3">
+                <label className="form-label">Email: </label>
+                <input className="form-control" type="text" onChange={ (e) => setEmail(e.target.value) } />
             </div>
-            <div>
-                <label>Password: </label>
-                <input type="text" onChange={ (e) => setPassword(e.target.value) } />
+            <div className="mb-3">
+                <label className="form-label">Password: </label>
+                <input className="form-control" type="text" onChange={ (e) => setPassword(e.target.value) } />
             </div>
-            <div>
-                <label>Confirm Password: </label>
-                <input type="text" onChange={ (e) => setConfirmPassword(e.target.value) } />
+            <div className="mb-3">
+                <label className="form-label">Confirm Password: </label>
+                <input className="form-control" type="text" onChange={ (e) => setConfirmPassword(e.target.value) } />
             </div>
-            <input type="submit" value="Create User" />
-        </form>
-            <div>
-                <p>First Name: {firstName}</p>
-                <p>Last Name: {lastName}</p>
-                <p>Email: {email}</p>
-                <p>Password: {password}</p>
-                <p>Confirm Password: {confirmPassword}</p>
+            <div className="mb-3">
+                <ul>Your Form Data</ul>
+                <ul>First Name: {firstName}</ul>
+                <ul>Last Name: {lastName}</ul>
+                <ul>Email: {email}</ul>
+                <ul>Password: {password}</ul>
+                <ul>Confirm Password: {confirmPassword}</ul>
             </div>
         </div>
     );

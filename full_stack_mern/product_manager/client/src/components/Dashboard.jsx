@@ -2,14 +2,13 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-
 const Dashboard = (props) => {
 
     // STATE TO HOLD ALL PRODUCTS COMING FROM DATABASE
     const [allProducts, setAllProducts] = useState([])
 
     // DESTRUCTURE FROM PROPS
-    const {refreshState} = props
+    const {refreshState, refresh} = props
     
 
     useEffect(() => {
@@ -18,6 +17,13 @@ const Dashboard = (props) => {
         .then(res => setAllProducts(res.data)) // INCOMING PRODUCTS ARE SET TO STATE
         .catch(err => console.log(err))
     }, [refreshState])
+
+
+const deleteHandler = (id) => {
+    axios.delete("http://localhost:8000/api/products/"+id)
+        .then(res => refresh())
+        .catch()
+}
 
 
     return (
@@ -30,6 +36,7 @@ const Dashboard = (props) => {
                         <Link to={"/" + product._id}>
                         <h1>{product.title} - {product.description}</h1>
                         </Link>
+                        <button onClick={(e) => deleteHandler(product._id)}>Delete</button>
                     </div>
                 )
             })

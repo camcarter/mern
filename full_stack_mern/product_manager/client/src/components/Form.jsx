@@ -7,11 +7,13 @@ const Form = (props) => {
     const [price, setPrice] = useState("0")
     const [description, setDescription] = useState("")
 
+
     // DESTRUCTURE
     const {refresh} = props
 
+
     // HANDLER FUNCTIONS
-    const submitHandler = event => {
+    const createHandler = event => {
         event.preventDefault()
         // CREATE AN OBJECT WITH PRODUCT INFO
         const productObj = {
@@ -19,6 +21,8 @@ const Form = (props) => {
             price,
             description
         }
+
+
         // MAKE POST REQUEST TO EXPRESS SERVER WITH productObj
         // PUSH URL TO ROUTES
         // RESETS FORM DATA TO BLANK
@@ -36,7 +40,7 @@ const Form = (props) => {
     return (
     <fieldset>
         <legend>FormComponent.jsx</legend>
-        <form onSubmit={submitHandler}>
+        <form onSubmit={createHandler}>
             <h2>Product Manager</h2>
             <p>
                 Title:

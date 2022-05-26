@@ -17,7 +17,7 @@ const EditForm = () => {
     useEffect(() => {
         axios.get("http://localhost:8000/api/products/" + product_id)
             .then(res => {
-                const {title, price, description} = res.data
+                // const {title, price, description} = res.data
                 setTitle(res.data.title)
                 setPrice(res.data.price)
                 setDescription(res.data.description)
